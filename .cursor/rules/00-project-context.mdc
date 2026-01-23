@@ -1,0 +1,30 @@
+---
+description: Project context (Slidev deck) and working conventions
+globs:
+  - "*"
+alwaysApply: true
+---
+
+# agentic-ide: project context
+
+## What this repo is
+- This repo is a **Slidev** presentation project.
+- Primary talk topic: **Agentic IDE — rules, commands, skills** (keep content focused on these).
+
+## Key files/folders
+- **Deck**: `slides.md`
+- **Extra pages**: `pages/**/*.md`
+- **Components**: `components/**/*.vue`
+- **Code snippets embedded in slides**: `snippets/**/*.ts`
+- **Product requirements doc**: `docs/PRD.md`
+
+## Local workflow (prefer npm for this repo)
+- Install: `npm install`
+- Run: `npm run dev`
+- Build: `npm run build`
+- Export: `npm run export`
+
+## Content constraints
+- Audience: **software engineers**
+- Duration: **20 minutes** (respect timeboxing; avoid scope creep)
+

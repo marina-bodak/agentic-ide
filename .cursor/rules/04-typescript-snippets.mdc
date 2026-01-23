@@ -1,0 +1,18 @@
+---
+description: TypeScript snippet conventions for snippets/
+globs:
+  - "snippets/**/*.ts"
+alwaysApply: false
+---
+
+# TypeScript snippets (for embedding in slides)
+
+## Snippet hygiene
+- Keep snippets **small** and focused (single concept).
+- Ensure output is **deterministic** (no randomness/time unless explicitly required).
+- Do not include secrets, API keys, or private endpoints.
+
+## Readability
+- Prefer clear names; add short comments when teaching a concept.
+- Avoid clever one-liners that reduce comprehension for the audience.
+

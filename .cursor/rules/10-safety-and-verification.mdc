@@ -1,0 +1,25 @@
+---
+description: Safety + verification guardrails for all work
+globs:
+  - "*"
+alwaysApply: true
+---
+
+# Safety and verification (always)
+
+## Default workflow
+- Start with a **brief plan** before making changes when the task is non-trivial.
+- Keep changes **scoped** to the user request; avoid drive-by refactors.
+- Prefer **small diffs**; explain tradeoffs when there are multiple options.
+
+## Verification-first
+- When changing code/content, verify with the most relevant check(s):
+  - For Slidev: `npm run dev` for preview; `npm run build` before sharing final.
+  - For snippets/components: ensure examples are deterministic and copyable.
+- Use **diff review** as the contract: summarize what changed and why.
+
+## Safety boundaries
+- Never add or expose secrets (tokens, keys). Don’t paste private data into prompts.
+- Avoid writing to ignored files; avoid generating large opaque artifacts.
+- Do not change Git history, create commits, or push unless the user explicitly asks.
+

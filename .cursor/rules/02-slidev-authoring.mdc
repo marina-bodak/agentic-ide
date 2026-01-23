@@ -1,0 +1,23 @@
+---
+description: Slidev authoring conventions (slides/pages)
+globs:
+  - "slides.md"
+  - "pages/**/*.md"
+alwaysApply: false
+---
+
+# Slidev authoring conventions
+
+## Structure
+- Keep slide content **tight** (bullets, short headings). Put detail in speaker notes.
+- Speaker notes: use the final HTML comment block on a slide (`<!-- ... -->`).
+- Prefer diagrams that explain workflows (agent loop; where rules/commands/skills plug in).
+
+## Code and examples
+- Prefer **small, copyable** snippets and diffs over long blocks.
+- Any code shown should be deterministic and runnable (or clearly marked as pseudo-code).
+
+## Demo friendliness
+- Design slides so you can switch from live demo to “demo-as-diff-walkthrough” instantly.
+- Avoid slides that depend on internet connectivity.
+

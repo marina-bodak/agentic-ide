@@ -1,0 +1,30 @@
+---
+description: Talk content guardrails (Agentic IDE: rules, commands, skills)
+globs:
+  - "slides.md"
+  - "pages/**/*.md"
+  - "docs/**/*.md"
+alwaysApply: false
+---
+
+# Talk content: Agentic IDE (rules, commands, skills)
+
+## Stay on topic
+Optimize for the triad:
+- **Rules**: persistent constraints/standards; where they live; how to scope with globs; always-apply vs file-scoped.
+- **Commands**: repeatable workflows (“plan → implement → verify”), good defaults, safe stop conditions.
+- **Skills**: reusable playbooks (inputs required, steps, verification), shareable across a team.
+
+Avoid drifting into:
+- Model internals, benchmarks, or vendor shootouts.
+- Generic “LLMs can do anything” content without guardrails.
+
+## Engineer-friendly framing
+- Use concrete examples: “Here’s the rule text / command flow / skill structure.”
+- Prefer checklists, diff-based verification, and realistic failure modes.
+- Every section should answer: **what it is**, **when to use**, **how to adopt**, **how to verify**.
+
+## Timeboxing
+- 20 minutes total; each section should be skimmable and demo-forward.
+- If adding slides, keep text minimal and move detail into speaker notes.
+

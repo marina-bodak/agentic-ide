@@ -1,0 +1,19 @@
+---
+description: Vue component conventions for Slidev components/
+globs:
+  - "components/**/*.vue"
+alwaysApply: false
+---
+
+# Vue components for Slidev
+
+## Keep components simple
+- Prefer small presentational components for slides.
+- Avoid global side effects; avoid long-running timers unless necessary.
+- Avoid fetching network resources at runtime for demos.
+
+## Vue 3 basics
+- Use Vue 3 composition API patterns.
+- Keep props explicit and typed when applicable.
+- Keep styling minimal and local to the component.
+
