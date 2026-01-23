@@ -1,0 +1,24 @@
+{
+  "outputDir": "public/generated",
+  "model": "gpt-image-1",
+  "size": "1024x1024",
+  "images": [
+    {
+      "filename": "agentic-ide-hero.png",
+      "prompt": "Create a clean, modern illustration for a software engineering talk titled \"Agentic IDE — Rules, Commands, Skills\". Visualize three labeled pillars (Rules, Commands, Skills) supporting a simplified IDE window. Minimal, high-contrast, flat vector style, dark-mode friendly, no tiny text, no brand logos."
+    },
+    {
+      "filename": "rules-guardrails.png",
+      "prompt": "Create a simple diagram-style illustration titled \"Rules\" showing guardrails around a code editor: a central code file with subtle boundary lines and checkmarks. Flat vector, minimal, high-contrast, dark-mode friendly, no brand logos, no tiny text."
+    },
+    {
+      "filename": "commands-workflow.png",
+      "prompt": "Create a simple workflow illustration titled \"Commands\" showing a slash command triggering a three-step loop: Plan → Implement → Verify. Flat vector, minimal, high-contrast, dark-mode friendly, no brand logos, no tiny text."
+    },
+    {
+      "filename": "skills-playbooks.png",
+      "prompt": "Create a simple illustration titled \"Skills\" showing a reusable playbook binder or recipe card stack labeled \"Skill\" feeding into consistent outputs (docs, diffs). Flat vector, minimal, high-contrast, dark-mode friendly, no brand logos, no tiny text."
+    }
+  ]
+}
+

@@ -5,12 +5,12 @@ theme: seriph
 # like them? see https://unsplash.com/collections/94734566/slidev
 background: https://cover.sli.dev
 # some information about your slides (markdown enabled)
-title: Welcome to Slidev
+title: Agentic IDE — Rules, Commands, Skills
 info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
+  ## Agentic IDE for Software Engineers
+  How to make AI coding agents repeatable with rules, commands, and skills.
 
-  Learn more at [Sli.dev](https://sli.dev)
+  Includes a 2–4 minute light demo and a verification-first checklist.
 # apply UnoCSS classes to the current slide
 class: text-center
 # https://sli.dev/features/drawing
@@ -21,12 +21,18 @@ transition: slide-left
 # enable MDC Syntax: https://sli.dev/features/mdc
 mdc: true
 # duration of the presentation
-duration: 35min
+duration: 20min
 ---
 
-# Welcome to Slidev
+## Agentic IDE
 
-Presentation slides for developers
+# Rules, Commands, Skills
+
+<img src="/generated/agentic-ide-hero.png" class="mx-auto mt-8 w-80 rounded-lg shadow" alt="Agentic IDE hero illustration" />
+
+<div class="mt-8 text-sm opacity-80">
+  20 min • Software engineers • Demo-first
+</div>
 
 <div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
   Press Space for next page <carbon:arrow-right />
@@ -49,21 +55,42 @@ The last comment block of each slide will be treated as slide notes. It will be 
 transition: fade-out
 ---
 
-# What is Slidev?
+---
+layout: image-right
+image: /generated/rules-guardrails.png
+---
 
-Slidev is a slides maker and presenter designed for developers, consist of the following features
+# Rules = guardrails
 
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - themes can be shared and re-used as npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embed Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export to PDF, PPTX, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - virtually anything that's possible on a webpage is possible in Slidev
-<br>
-<br>
+- Encode constraints once (scope, safety, style)
+- Apply automatically via globs / always-apply
+- Make “good behavior” the default
 
-Read more about [Why Slidev?](https://sli.dev/guide/why)
+---
+layout: image-right
+image: /generated/commands-workflow.png
+---
+
+# Commands = workflows
+
+- Turn repeatable prompts into `/` actions
+- Standard flow: Plan → Implement → Verify
+- Reduce “prompt drift” and omissions
+
+---
+layout: image-right
+image: /generated/skills-playbooks.png
+---
+
+# Skills = playbooks
+
+- Package a task as steps + checks + scripts
+- Share across projects/agents
+- Keep context lean via on-demand resources
+
+<!--
+TODO: Replace the remaining Slidev starter-template slides below with this talk’s full outline.
+-->
 
 <!--
 You can have `style` tag in markdown to override the style for the current page.
