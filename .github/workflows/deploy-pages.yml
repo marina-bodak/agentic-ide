@@ -31,10 +31,10 @@ jobs:
           cache: npm
 
       - name: Install deps
+        env:
+          NPM_CONFIG_USERCONFIG: /dev/null
         run: |
-          npm config set registry https://registry.npmjs.org/
-          npm config set always-auth false
-          npm ci --no-audit --no-fund
+          npm install --no-audit --no-fund --registry=https://registry.npmjs.org/
 
       - name: Build Slidev
         run: npm run build -- --base /agentic-ide/
