@@ -1,103 +1,41 @@
 ---
-# try also 'default' to start simple
 theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
 background: https://cover.sli.dev
-# some information about your slides (markdown enabled)
-title: Agentic IDE — Rules, Commands, Skills
+colorSchema: dark
+title: "Agentic IDEs: rules, commands, skills"
 info: |
-  ## Agentic IDE for Software Engineers
-  How to make AI coding agents repeatable with rules, commands, and skills.
+  ## Agentic IDEs: rules, commands, skills
+  How to make agent behavior repeatable for developers: guardrails, workflows, playbooks.
 
-  Includes a 2–4 minute light demo and a verification-first checklist.
-# apply UnoCSS classes to the current slide
+  20-minute talk for software engineers.
 class: text-center
-# https://sli.dev/features/drawing
-drawings:
-  persist: false
-# slide transition: https://sli.dev/guide/animations.html#slide-transitions
 transition: slide-left
-# enable MDC Syntax: https://sli.dev/features/mdc
 mdc: true
-# duration of the presentation
 duration: 20min
 ---
 
-## Agentic IDE
+## Agentic IDEs
 
 # Rules, Commands, Skills
 
-<img src="/generated/agentic-ide-hero.png" class="mx-auto mt-8 w-80 rounded-lg shadow" alt="Agentic IDE hero illustration" />
-
-<div class="mt-8 text-sm opacity-80">
-  20 min • Software engineers • Demo-first
-</div>
-
-<div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
-  Press Space for next page <carbon:arrow-right />
-</div>
-
-<div class="abs-br m-6 text-xl">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="slidev-icon-btn">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" class="slidev-icon-btn">
-    <carbon:logo-github />
-  </a>
-</div>
-
 <!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
-
----
-transition: fade-out
----
-
----
-layout: image-right
-image: /generated/rules-guardrails.png
----
-
-# Rules = guardrails
-
-- Encode constraints once (scope, safety, style)
-- Apply automatically via globs / always-apply
-- Make “good behavior” the default
-
----
-layout: image-right
-image: /generated/commands-workflow.png
----
-
-# Commands = workflows
-
-- Turn repeatable prompts into `/` actions
-- Standard flow: Plan → Implement → Verify
-- Reduce “prompt drift” and omissions
-
----
-layout: image-right
-image: /generated/skills-playbooks.png
----
-
-# Skills = playbooks
-
-- Package a task as steps + checks + scripts
-- Share across projects/agents
-- Keep context lean via on-demand resources
-
-<!--
-TODO: Replace the remaining Slidev starter-template slides below with this talk’s full outline.
--->
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/features/slide-scope-style
+Opening: this is about making agent behavior repeatable (not hype, not model internals).
 -->
 
 <style>
+/* Dark, non-black background for all slides */
+:root {
+  --slidev-theme-background: transparent;
+}
+.slidev-page {
+  background: radial-gradient(1200px 700px at 20% 20%, rgba(78, 197, 212, 0.18), rgba(78, 197, 212, 0) 60%),
+              radial-gradient(1100px 700px at 80% 75%, rgba(124, 92, 255, 0.14), rgba(124, 92, 255, 0) 60%),
+              linear-gradient(135deg, #0b1220 0%, #0e2a3a 55%, #112d4e 100%);
+}
+.slidev-layout {
+  color: #e8f3ff;
+}
+
 h1 {
   background-color: #2B90B6;
   background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
@@ -109,556 +47,294 @@ h1 {
 }
 </style>
 
-<!--
-Here is another comment.
--->
-
----
-transition: slide-up
-level: 2
 ---
 
-# Navigation
+# The problem: prompts don’t scale
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/ui#navigation-bar)
+- Everyone writes prompts differently
+- Agents drift without guardrails
+- Teams need repeatable behavior and reviewable diffs
 
-## Keyboard Shortcuts
-
-|                                                     |                             |
-| --------------------------------------------------- | --------------------------- |
-| <kbd>right</kbd> / <kbd>space</kbd>                 | next animation or slide     |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd>                                       | previous slide              |
-| <kbd>down</kbd>                                     | next slide                  |
-
-<!-- https://sli.dev/guide/animations.html#click-animation -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-  alt=""
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
-
----
-layout: two-cols
-layoutClass: gap-16
----
-
-# Table of contents
-
-You can use the `Toc` component to generate a table of contents for your slides:
-
-```html
-<Toc minDepth="1" maxDepth="1" />
-```
-
-The title will be inferred from your slide content, or you can override it with `title` and `level` in your frontmatter.
-
-::right::
-
-<Toc text-sm minDepth="1" maxDepth="2" />
-
----
-layout: image-right
-image: https://cover.sli.dev
----
-
-# Code
-
-Use code snippets and get the highlighting directly, and even types hover!
-
-```ts [filename-example.ts] {all|4|6|6-7|9|all} twoslash
-// TwoSlash enables TypeScript hover information
-// and errors in markdown code blocks
-// More at https://shiki.style/packages/twoslash
-import { computed, ref } from 'vue'
-
-const count = ref(0)
-const doubled = computed(() => count.value * 2)
-
-doubled.value = 2
-```
-
-<arrow v-click="[4, 5]" x1="350" y1="310" x2="195" y2="342" color="#953" width="2" arrowSize="1" />
-
-<!-- This allow you to embed external code blocks -->
-<<< @/snippets/external.ts#snippet
-
-<!-- Footer -->
-
-[Learn more](https://sli.dev/features/line-highlighting)
-
-<!-- Inline style -->
-<style>
-.footnotes-sep {
-  @apply mt-5 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
-
-<!--
-Notes can also sync with clicks
-
-[click] This will be highlighted after the first click
-
-[click] Highlighted with `count = ref(0)`
-
-[click:3] Last click (skip two clicks)
--->
-
----
-level: 2
----
-
-# Shiki Magic Move
-
-Powered by [shiki-magic-move](https://shiki-magic-move.netlify.app/), Slidev supports animations across multiple code snippets.
-
-Add multiple code blocks and wrap them with <code>````md magic-move</code> (four backticks) to enable the magic move. For example:
-
-````md magic-move {lines: true}
-```ts {*|2|*}
-// step 1
-const author = reactive({
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-})
-```
-
-```ts {*|1-2|3-4|3-4,8}
-// step 2
-export default {
-  data() {
-    return {
-      author: {
-        name: 'John Doe',
-        books: [
-          'Vue 2 - Advanced Guide',
-          'Vue 3 - Basic Guide',
-          'Vue 4 - The Mystery'
-        ]
-      }
-    }
-  }
-}
-```
-
-```ts
-// step 3
-export default {
-  data: () => ({
-    author: {
-      name: 'John Doe',
-      books: [
-        'Vue 2 - Advanced Guide',
-        'Vue 3 - Basic Guide',
-        'Vue 4 - The Mystery'
-      ]
-    }
-  })
-}
-```
-
-Non-code blocks are ignored.
-
-```vue
-<!-- step 4 -->
-<script setup>
-const author = {
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-}
-</script>
-```
-````
+**Thesis**: encode behavior as repo artifacts.
 
 ---
 
-# Components
+# Agentic IDE vs “not agentic”
 
-<div grid="~ cols-2 gap-4">
-<div>
+| | Not agentic (chat only) | Agentic IDE (structured) |
+|---|---|---|
+| **Inputs** | ad-hoc prompts | rules + commands + skills |
+| **Consistency** | per-person | team-wide defaults |
+| **Quality control** | “trust the response” | diffs + checks + stop conditions |
+| **Repeatability** | low | high |
+| **Onboarding** | tribal knowledge | version-controlled artifacts |
 
-You can use Vue components directly inside your slides.
+---
 
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
+# Mental model: the agent loop
 
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
+<div class="mt-8 flex items-stretch gap-3 text-left">
+  <div class="flex-1 rounded-xl border border-white/10 bg-white/5 p-4">
+    <div class="text-sm opacity-70">1</div>
+    <div class="text-xl font-semibold mt-1">Plan</div>
+    <div class="text-sm opacity-80 mt-2">Clarify goal, constraints, definition of done.</div>
+  </div>
+  <div class="flex items-center text-3xl opacity-60 px-1">→</div>
+  <div class="flex-1 rounded-xl border border-white/10 bg-white/5 p-4">
+    <div class="text-sm opacity-70">2</div>
+    <div class="text-xl font-semibold mt-1">Act</div>
+    <div class="text-sm opacity-80 mt-2">Edit files, run tools, draft changes.</div>
+  </div>
+  <div class="flex items-center text-3xl opacity-60 px-1">→</div>
+  <div class="flex-1 rounded-xl border border-white/10 bg-white/5 p-4">
+    <div class="text-sm opacity-70">3</div>
+    <div class="text-xl font-semibold mt-1">Observe</div>
+    <div class="text-sm opacity-80 mt-2">Read outputs: diffs, logs, errors, results.</div>
+  </div>
+  <div class="flex items-center text-3xl opacity-60 px-1">→</div>
+  <div class="flex-1 rounded-xl border border-white/10 bg-white/5 p-4">
+    <div class="text-sm opacity-70">4</div>
+    <div class="text-xl font-semibold mt-1">Verify</div>
+    <div class="text-sm opacity-80 mt-2">Run checks; decide: done vs iterate.</div>
+  </div>
 </div>
-<div>
 
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
+<div class="mt-6 text-sm opacity-80">
+Rules <span class="opacity-60">= constraints</span> • Commands <span class="opacity-60">= workflows</span> • Skills <span class="opacity-60">= playbooks</span>
 </div>
 
 <!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
-
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
+Keep this short; everything else maps to this loop.
 -->
 
 ---
-class: px-20
+
+# Cursor artifacts (the building blocks)
+
+What you can ship in a repo to make agent behavior repeatable:
+
+- **Rules**: persistent instructions that get included in context  
+  - Project: `.cursor/rules/` (optionally `.mdc` with `description` / `globs`)
+  - Alternative: `AGENTS.md` in the repo root for simple instructions
+- **Commands**: reusable `/` prompts  
+  - Project: `.cursor/commands/<command>.md`
+- **Skills**: packaged playbooks (+ optional scripts/assets)  
+  - Project: `.cursor/skills/<skill>/SKILL.md` (+ `scripts/`, `assets/`, `references/`)
+
+<!--
+This slide is intentionally “generic”: artifacts and where they live.
+-->
+
 ---
 
-# Themes
+# Rules = guardrails
 
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
+<div class="mt-6 grid grid-cols-2 gap-8 items-center text-left">
+  <div>
+    <ul>
+      <li>Encode constraints once (scope, safety, style)</li>
+      <li>Apply always / by glob / intelligently / manually</li>
+      <li>Make “good behavior” the default for everyone</li>
+    </ul>
+  </div>
+  <div class="rounded-xl border border-white/10 bg-white/5 p-3">
+    <img src="/diagrams/cursor-rules-settings.png" class="w-full rounded-lg" alt="Cursor Rules settings screenshot" />
+  </div>
+</div>
 
-<div grid="~ cols-2 gap-2" m="t-2">
+---
+
+## Rules (Cursor): what they are
+
+From Cursor’s docs, rules are **system-level instructions** included in context to give the agent persistent guidance across sessions. Types include:
+- Project Rules (repo) + User Rules + Team Rules + `AGENTS.md`
+
+Use cases:
+- encode domain knowledge
+- standardize style/architecture decisions
+- automate templates/workflows
+
+<!--
+Source: Cursor Rules docs.
+-->
+
+---
+
+## Rules: how to structure them
+
+- Store **Project Rules** in `.cursor/rules/` (version-controlled)
+- Rule files can be `.md` (simple) or `.mdc` (with frontmatter metadata)
+- Use `.mdc` when you want better control via `description` / `globs` / `alwaysApply`
+
+Rule “types” you can choose (conceptually):
+- **Always Apply**: included in every chat
+- **Apply Intelligently**: agent includes it when relevant
+- **Apply to Specific Files**: based on a file pattern match
+- **Apply Manually**: only when you @-mention it
+
+Example `.mdc` metadata (shown without the `---` separators):
 
 ```yaml
----
-theme: default
----
+description: Guardrails for backend changes
+globs:
+  - backend/**/*.ts
+alwaysApply: false
 ```
 
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/guide/theme-addon#use-theme) and
-check out the [Awesome Themes Gallery](https://sli.dev/resources/theme-gallery).
+<!--
+Source: Cursor Rules docs. Emphasize: small, composable rules.
+-->
 
 ---
 
-# Clicks Animations
+## Rules: what to put in them (practical)
 
-You can add `v-click` to elements to add a click animation.
+- Repo context (purpose, key paths)
+- Safety boundaries (no secrets, no drive-by changes)
+- “Definition of done” for common tasks
+- File boundaries (what can/can’t be touched)
 
-<div v-click>
-
-This shows up when you click the slide:
-
-```html
-<div v-click>This shows up when you click the slide.</div>
-```
-
-</div>
-
-<br>
-
-<v-click>
-
-The <span v-mark.red="3"><code>v-mark</code> directive</span>
-also allows you to add
-<span v-mark.circle.orange="4">inline marks</span>
-, powered by [Rough Notation](https://roughnotation.com/):
-
-```html
-<span v-mark.underline.orange>inline markers</span>
-```
-
-</v-click>
-
-<div mt-20 v-click>
-
-[Learn more](https://sli.dev/guide/animations#click-animation)
-
-</div>
+**Avoid**: pasting huge style guides or duplicating linters.
 
 ---
 
-# Motions
+# Commands = workflows
 
-Motion animations are powered by [@vueuse/motion](https://motion.vueuse.org/), triggered by `v-motion` directive.
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }"
-  :click-3="{ x: 80 }"
-  :leave="{ x: 1000 }"
->
-  Slidev
-</div>
-```
-
-<div class="w-60 relative">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-square.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-circle.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-triangle.png"
-      alt=""
-    />
+<div class="mt-6 grid grid-cols-2 gap-8 items-center text-left">
+  <div>
+    <ul>
+      <li>Reusable <code>/</code> actions</li>
+      <li>Great for “plan → implement → verify”</li>
+      <li>Reduces omissions and context switching</li>
+    </ul>
   </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
+  <div class="rounded-xl border border-white/10 bg-white/5 p-3">
+    <img src="/diagrams/cursor-commands-input.png" class="w-full rounded-lg" alt="Cursor Commands input screenshot" />
   </div>
 </div>
 
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
+---
 
-<div
-  v-motion
-  :initial="{ x:35, y: 30, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
+## Commands (Cursor): what they are
 
-[Learn more](https://sli.dev/guide/animations.html#motion)
+Cursor Commands are **custom slash commands** that show up when you type `/` in Agent chat.
 
-</div>
+Think of them as **reusable prompt + checklist templates** for common workflows:
+- repeatable “do the same thing every time” tasks
+- consistent checklists (review, security, release, onboarding)
+- guardrails (“don’t commit”, “stop and ask if tests fail”, etc.)
+
+Where they live:
+- **Project**: `.cursor/commands/<command>.md`
+- **Global**: `~/.cursor/commands/<command>.md`
+- **Team**: managed in the Cursor Dashboard (auto-available to the team)
+
+Bonus: **parameters** work like this — anything after the command name is included as extra context (e.g. `/pr-ready DX-123`).
+
+<!--
+Source: Cursor changelog 1.6 (commands stored in .cursor/commands/*.md).
+-->
 
 ---
 
-# $\LaTeX$
+## Commands: design pattern
 
-$\LaTeX$ is supported out-of-box. Powered by [$\KaTeX$](https://katex.org/).
+**A good command contains**:
+- Objective + when to use
+- Steps (including what to run)
+- Validation checklist
+- Stop conditions (when to ask a human)
 
-<div h-3 />
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$ {1|3|all}
-\begin{aligned}
-\nabla \cdot \vec{E} &= \frac{\rho}{\varepsilon_0} \\
-\nabla \cdot \vec{B} &= 0 \\
-\nabla \times \vec{E} &= -\frac{\partial\vec{B}}{\partial t} \\
-\nabla \times \vec{B} &= \mu_0\vec{J} + \mu_0\varepsilon_0\frac{\partial\vec{E}}{\partial t}
-\end{aligned}
-$$
-
-[Learn more](https://sli.dev/features/latex)
+Default: never commit/push unless explicitly requested.
 
 ---
 
-# Diagrams
+# Skills = playbooks (+ scripts)
 
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
-
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectiveness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
-
-</div>
-
-Learn more: [Mermaid Diagrams](https://sli.dev/features/mermaid) and [PlantUML Diagrams](https://sli.dev/features/plantuml)
-
----
-foo: bar
-dragPos:
-  square: 691,32,167,_,-16
----
-
-# Draggable Elements
-
-Double-click on the draggable elements to edit their positions.
-
-<br>
-
-###### Directive Usage
-
-```md
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-```
-
-<br>
-
-###### Component Usage
-
-```md
-<v-drag text-3xl>
-  <div class="i-carbon:arrow-up" />
-  Use the `v-drag` component to have a draggable container!
-</v-drag>
-```
-
-<v-drag pos="663,206,261,_,-15">
-  <div text-center text-3xl border border-main rounded>
-    Double-click me!
+<div class="mt-6 grid grid-cols-2 gap-8 items-center text-left">
+  <div>
+    <ul>
+      <li>Portable package: instructions + references + scripts</li>
+      <li>Agent loads skills on demand (keeps context lean)</li>
+      <li>Can behave like a command with <code>disable-model-invocation: true</code></li>
+    </ul>
   </div>
-</v-drag>
-
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-
-###### Draggable Arrow
-
-```md
-<v-drag-arrow two-way />
-```
-
-<v-drag-arrow pos="67,452,253,46" two-way op70 />
-
----
-src: ./pages/imported-slides.md
-hide: false
----
+  <div class="rounded-xl border border-white/10 bg-white/5 p-3">
+    <img src="/diagrams/dynamic-context-discovery.png" class="w-full rounded-lg" alt="Dynamic context discovery diagram (tools loaded on demand)" />
+  </div>
+</div>
 
 ---
 
-# Monaco Editor
+## Skills (Cursor): what they are
 
-Slidev provides built-in Monaco Editor support.
+Skills are a **portable, version-controlled package** that teaches agents how to do domain-specific tasks. Cursor discovers skills from skill directories and the agent decides when they’re relevant (or you can make them manual).
 
-Add `{monaco}` to the code block to turn it into an editor:
+Project-level skill directories (Cursor docs):
+- `.cursor/skills/`
+- `.claude/skills/` (compat)
+- `.codex/skills/` (compat)
 
-```ts {monaco}
-import { ref } from 'vue'
-import { emptyArray } from './external'
+Each skill is a folder containing `SKILL.md` with YAML frontmatter.
 
-const arr = ref(emptyArray(10))
-```
+<!--
+Source: Cursor Agent Skills docs.
+-->
 
-Use `{monaco-run}` to create an editor that can execute the code directly in the slide:
+---
 
-```ts {monaco-run}
-import { version } from 'vue'
-import { emptyArray, sayHello } from './external'
+# Skills: what to include
 
-sayHello()
-console.log(`vue ${version}`)
-console.log(emptyArray<number>(10).reduce(fib => [...fib, fib.at(-1)! + fib.at(-2)!], [1, 1]))
-```
+- `SKILL.md` instructions (when to use, steps, verification)
+- `scripts/` for automation the agent can run
+- `references/` for deeper docs loaded on demand
+- `assets/` for templates/resources
+
+Use `disable-model-invocation: true` when you want a skill to behave like an explicit command.
+
+---
+
+# Pitfalls + guardrails
+
+- Secrets/private data: never paste, never commit
+- Scope creep: keep diffs small, file-bound
+- Hallucinations: trust checks and diffs, not confident text
+- Team consistency: review rules/commands/skills like code
+
+---
+
+# Adoption checklist (start tomorrow)
+
+Start with:
+- 1 always-apply rule (safety + workflow)
+- 1 scoped rule (domain conventions)
+- 1 command (your most repetitive workflow)
+- 1 skill (a playbook you keep re-explaining)
+
+Measure:
+- fewer prompt re-writes
+- smaller diffs
+- faster “first draft” PRs
+
+---
+
+# Useful links
+
+- [Cursor Rules](https://cursor.com/docs/context/rules)
+- [Cursor Agent Skills](https://cursor.com/docs/context/skills)
+- [Slash commands announcement (storage path)](https://cursor.com/changelog/1-6)
+- [Agent Skills standard](https://agentskills.io)
 
 ---
 layout: center
 class: text-center
 ---
 
-# Learn More
+# Wrap-up
 
-[Documentation](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/resources/showcases)
+Rules make behavior consistent.  
+Commands make workflows repeatable.  
+Skills make teams scalable.
 
-<PoweredBySlidev mt-10 />
+Q&A
+
